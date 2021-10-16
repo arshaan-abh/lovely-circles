@@ -1,0 +1,88 @@
+@keyframes CIRCLE0 {
+    from {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(2);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes CIRCLE1 {
+    from {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
+}
+
+@keyframes CIRCLE2 {
+    from {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(4);
+    }
+    to {
+        transform: scale(0);
+    }
+}
+
+#loading {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999999999;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transition: transform var(--loading-transition-duration) var(--timing-function), opacity var(--loading-transition-duration) var(--timing-function);
+}
+
+#loading #CIRCLE0 {
+    position: absolute;
+    width: 10%;
+    background: var(--COLOR1);
+    animation: CIRCLE0 16s infinite var(--timing-function);
+    overflow: hidden;
+}
+
+#loading #CIRCLE1 {
+    position: absolute;
+    width: 1%;
+    background: var(--COLOR0);
+    animation: CIRCLE1 1s infinite var(--timing-function);
+}
+
+#loading #CIRCLE0 #CIRCLE2 {
+    position: absolute;
+    bottom: -50%;
+    right: -50%;
+    width: 100%;
+    background: #FFFFFF10;
+    animation: CIRCLE2 16s infinite var(--timing-function);
+}
+
+#loading #CIRCLE0 #CIRCLE3 {
+    position: absolute;
+    bottom: calc(-50% - 16px);
+    right: calc(-50% - 16px);
+    width: 100%;
+    background: #FFFFFF10;
+    animation: CIRCLE2 16s infinite var(--timing-function);
+}
+
+#loading #CIRCLE0 #CIRCLE4 {
+    position: absolute;
+    bottom: calc(-50% - 32px);
+    right: calc(-50% - 32px);
+    width: 100%;
+    background: #FFFFFF10;
+    animation: CIRCLE2 16s infinite var(--timing-function);
+}

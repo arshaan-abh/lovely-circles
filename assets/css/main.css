@@ -1,0 +1,35 @@
+:root {
+    --COLOR0: #212121;
+    --COLOR1: #6D9886;
+    --COLOR2: #D9CAB3;
+    --COLOR3: #F6F6F6;
+    --debug-color: red;
+    --timing-function: cubic-bezier(0, 1, 1, 1);
+    --loading-transition-duration: .5s;
+}
+
+body {
+    margin: 0;
+    background: var(--COLOR0);
+}
+
+
+.circle {
+    border-radius: 50%;
+    background: var(--debug-color);
+    width: 100%;
+    /*position: relative;*/
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.circle:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.circle > .c-inside {
+    position: absolute;
+}
