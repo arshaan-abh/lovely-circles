@@ -45,7 +45,7 @@
     transition: transform var(--loading-transition-duration) var(--timing-function), opacity var(--loading-transition-duration) var(--timing-function);
 }
 
-#loading #CIRCLE0 {
+#loading .CIRCLE0 {
     position: absolute;
     width: 10%;
     background: var(--COLOR1);
@@ -53,14 +53,14 @@
     overflow: hidden;
 }
 
-#loading #CIRCLE1 {
+#loading .CIRCLE1 {
     position: absolute;
     width: 1%;
     background: var(--COLOR0);
     animation: CIRCLE1 1s infinite var(--timing-function);
 }
 
-#loading #CIRCLE0 #CIRCLE2 {
+#loading .CIRCLE0 .CIRCLE2 {
     position: absolute;
     bottom: -50%;
     right: -50%;
@@ -69,7 +69,7 @@
     animation: CIRCLE2 16s infinite var(--timing-function);
 }
 
-#loading #CIRCLE0 #CIRCLE3 {
+#loading .CIRCLE0 .CIRCLE3 {
     position: absolute;
     bottom: calc(-50% - 16px);
     right: calc(-50% - 16px);
@@ -78,7 +78,7 @@
     animation: CIRCLE2 16s infinite var(--timing-function);
 }
 
-#loading #CIRCLE0 #CIRCLE4 {
+#loading .CIRCLE0 .CIRCLE4 {
     position: absolute;
     bottom: calc(-50% - 32px);
     right: calc(-50% - 32px);
