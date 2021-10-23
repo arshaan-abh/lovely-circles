@@ -1,24 +1,60 @@
 :root {
     --COLOR0: #212121;
     --COLOR1: #6D9886;
+    --COLOR1-gradient: linear-gradient(225deg, rgba(109, 152, 134, 1) 0%, rgba(182, 203, 194, 1) 100%);
     --COLOR2: #D9CAB3;
     --COLOR3: #F6F6F6;
-    --debug-color: red;
+    --COLOR3-opacity: #F6F6F620;
+    --no-color: url('../images/no color.jpg');
     --timing-function: cubic-bezier(0, 1, 1, 1);
     --loading-transition-duration: 1s;
+    --loading-animation-transition-duration: 16s;
+    --transition-duration: .5s;
+    font-size: 8px;
 }
 
+/* todo text selection*/
+/* todo cursor*/
+/* todo font*/
 body {
+    font-family: Calibri;
+    overflow: hidden;
     margin: 0;
     background: var(--COLOR0);
+}
+
+.fa-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.fa-container .fa-alt {
+    position: absolute;
+    color: transparent;
+    transition: color var(--transition-duration) var(--timing-function);
+
+}
+
+.fa-container:hover .fa-alt {
+    color: var(--COLOR3);
+}
+
+.fa-container svg {
+    color: var(--COLOR3);
+    transition: color var(--transition-duration) var(--timing-function);
+
+}
+
+.fa-container:hover svg {
+    color: var(--COLOR3-opacity);
 }
 
 
 .circle {
     border-radius: 50%;
-    background: var(--debug-color);
+    background: var(--no-color);
     width: 100%;
-    /*position: relative;*/
     align-items: center;
     display: flex;
     justify-content: center;
@@ -30,23 +66,81 @@ body {
     padding-bottom: 100%;
 }
 
-.circle > .c-inside {
-    position: absolute;
-}
+/*************************** main ***************************/
 
 #main {
     position: fixed;
     width: 100%;
     height: 100%;
+    z-index: 99999999;
     align-items: center;
     display: flex;
     justify-content: center;
+
+    opacity: 0;
+    transform: scale(2);
+    transition: opacity var(--loading-transition-duration) var(--timing-function), transform var(--loading-transition-duration) var(--timing-function);
 }
 
 #main .CIRCLE0 {
-    position: relative;
-    width: 0;
-    overflow: hidden;
+    width: 16%;
+    background: var(--COLOR3);
+}
+
+#main .CIRCLE1 {
+    width: 8%;
     background: var(--COLOR0);
-    transition: width var(--loading-transition-duration) var(--timing-function),border-radius var(--loading-transition-duration) var(--timing-function);
+    position: absolute;
+    transform: translate(50%, 50%);
+    box-shadow: 0 0 0 8px var(--COLOR0);
+    transition: background var(--transition-duration) var(--timing-function), color var(--transition-duration) var(--timing-function);
+    color: var(--COLOR3);
+    font-size: 4rem;
+}
+
+#main .CIRCLE1:hover {
+    background: var(--COLOR1);
+    /*todo add gradient to blue circles like this:*/
+    /*background: var(--COLOR1-gradient);*/
+}
+
+#main .CIRCLE1 svg {
+    font-size: 6rem;
+}
+
+#main .CIRCLE2 {
+    width: 3rem;
+    position: absolute;
+    left: 43%;
+    background: transparent;
+    font-size: 2rem;
+    transition: background var(--transition-duration) var(--timing-function);
+    color: var(--COLOR0);
+}
+
+#main .CIRCLE2:hover {
+    background: #00000020;
+}
+
+#main .menu {
+    padding: 1rem 0;
+    width: 10%;
+    height: max-content;
+    top: 50%;
+    margin-top: 2rem;
+    position: absolute;
+    left: 43%;
+    transform: translateX(-50%) translateX(1.5rem);
+    background-color: var(--COLOR2);
+    border-radius: 8px;
+}
+
+#main .menu li {
+    font-size: 2rem;
+    display: block;
+    padding: 1rem 1rem 0 1rem;
+}
+
+#main .menu li:last-child {
+    padding-bottom: 1rem;
 }
