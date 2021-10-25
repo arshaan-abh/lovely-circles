@@ -114,7 +114,7 @@ body {
     left: 43%;
     background: transparent;
     font-size: 2rem;
-    transition: background var(--transition-duration) var(--timing-function);
+    transition: background var(--transition-duration) var(--timing-function), transform var(--transition-duration) var(--timing-function);
     color: var(--COLOR0);
 }
 
@@ -122,7 +122,7 @@ body {
     background: #00000020;
 }
 
-#main .menu {
+#main #menu {
     padding: 1rem 0;
     width: 10%;
     height: max-content;
@@ -131,16 +131,32 @@ body {
     position: absolute;
     left: 43%;
     transform: translateX(-50%) translateX(1.5rem);
-    background-color: var(--COLOR2);
+    background-color: transparent;
     border-radius: 8px;
+    overflow: hidden;
 }
 
-#main .menu li {
+#main #menu .CIRCLE3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: var(--COLOR2);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    transition: width var(--transition-duration) var(--timing-function), height var(--transition-duration) var(--timing-function), border-radius var(--transition-duration) var(--timing-function);
+}
+
+#main #menu li {
+    color: transparent;
     font-size: 2rem;
     display: block;
     padding: 1rem 1rem 0 1rem;
+    transition: color var(--transition-duration) var(--timing-function);
 }
 
-#main .menu li:last-child {
+#main #menu li:last-child {
     padding-bottom: 1rem;
 }
