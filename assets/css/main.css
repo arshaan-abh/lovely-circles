@@ -76,10 +76,10 @@ body {
     align-items: center;
     display: flex;
     justify-content: center;
-
+    top: 0;
     opacity: 0;
     transform: scale(2);
-    transition: opacity var(--loading-transition-duration) var(--timing-function), transform var(--loading-transition-duration) var(--timing-function);
+    transition: opacity var(--loading-transition-duration) var(--timing-function), transform var(--loading-transition-duration) var(--timing-function), top var(--loading-transition-duration) var(--timing-function);
 }
 
 #main .CIRCLE0 {

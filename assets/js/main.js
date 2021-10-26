@@ -1,4 +1,5 @@
 const bodyStyles = window.getComputedStyle(document.body);
+const transitionDuration = bodyStyles.getPropertyValue("--transition-duration").replace('s', '') * 1000;
 //todo a system for getting css vars
 ////////////////////////////////// main
 const button = $("#main .CIRCLE2");
@@ -10,7 +11,6 @@ function openMenu() {
     button.off("click")
     button.css("transform", "rotate(180deg)")
     circle.css("width", "100%").css("height", "100%").css("border-radius", "8px")
-    const transitionDuration = bodyStyles.getPropertyValue("--transition-duration").replace('s', '') * 1000;
     setTimeout(function () {
         menu.css("background", "var(--COLOR2)")
         circle.css("background", "transparent")
@@ -24,6 +24,7 @@ function openMenu() {
     }, transitionDuration)
 }
 
+// todo check the texts fading. its awful!
 function closeMenu() {
     button.off("click")
     button.css("transform", "rotate(0deg)")
@@ -33,7 +34,6 @@ function closeMenu() {
     menu.css("background", "transparent")
     circle.css("width", "0%")
     circle.css("height", "0%")
-    const transitionDuration = bodyStyles.getPropertyValue("--transition-duration").replace('s', '') * 1000;
     setTimeout(function () {
         button.click(function () {
             openMenu()

@@ -1,3 +1,4 @@
+<!-- todo check in other browsers -->
 <!DOCTYPE html>
 <!-- todo add change language option and dont forget this: -->
 <html lang="en">
@@ -5,12 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lovely Circles</title>
+    <link href="assets/sources/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/loading.css" rel="stylesheet">
+    <link href="assets/css/home.css" rel="stylesheet">
     <script src="assets/sources/jquery-3.6.0.min.js"></script>
+    <script src="assets/sources/material-components-web.min.js"></script>
+    <!--todo replace fontawesome with material icons :D-->
     <script src="assets/sources/fontawesome/all.min.js"></script>
 </head>
 <body>
+<!-- todo maybe a navigation system?!... (which removes and adds html sections when needed) -->
 <div id="loading">
     <div class="circle CIRCLE0">
         <div class="circle CIRCLE2">
@@ -44,7 +51,12 @@
         <li>1. first</li>
     </div>
 </div>
+<div id="home">
+    <div id="background-image"></div>
+    <div id="wave"></div>
+</div>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/loading.js"></script>
+<script src="assets/js/home.js"></script>
 </body>
 </html>
