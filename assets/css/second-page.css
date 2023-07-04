@@ -1,0 +1,413 @@
+:root {
+    --second-page-background-position-x: 0px;
+}
+
+#home .next-animated {
+    background: url("../images/3.jpg") var(--second-page-background-position-x) center / cover fixed;
+    opacity: 0;
+    z-index: -1;
+    width: calc((100% * var(--scale)) + 64px + var(--box-shadow-offset));
+    position: absolute;
+    --scale: 1;
+    --box-shadow-offset: 0px;
+    transition: width var(--transition-duration) var(--timing-function), transform var(--transition-duration) var(--timing-function);
+    justify-content: right;
+    align-items: start;
+    overflow: hidden;
+}
+
+#home .next-animated.class {
+    --scale: 5;
+}
+
+#home .next-animated .second-page-alternative {
+    overflow: hidden;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    /*background: red;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#second-page {
+    background: url("../images/3.jpg") var(--second-page-background-position-x) center / cover fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    /*z-index: 99999999;*/
+    z-index: 9999999;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition-duration) var(--timing-function);
+}
+
+#second-page .content .onclick-junk {
+    color: transparent;
+    font-size: 4rem;
+    padding-left: 4rem;
+    padding-top: 4rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 102%;
+    z-index: -1;
+    transition: color var(--transition-duration) var(--timing-function), background var(--transition-duration) var(--timing-function);
+
+    white-space: nowrap;
+}
+
+#second-page .content .onclick-junk svg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 4rem;
+    margin: auto;
+    color: transparent;
+    transition: color var(--transition-duration) var(--timing-function);
+}
+
+#second-page.next-content .content .onclick-junk svg {
+    color: #808080;
+}
+
+/* todo waves should've been pseudo elements */
+/*#second-page.next-content .onclick-junk .wave.second {*/
+/*    background: red;*/
+/*    !*background: #d9d9d9;*!*/
+/*}*/
+
+#second-page.next-content .content .onclick-junk {
+    color: var(--COLOR0);
+}
+
+#second-page .background-image {
+    position: absolute;
+    top: 0;
+    right: -50%;
+    bottom: 0;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    --circle-width: 192px;
+    --width: calc(var(--circle-width) * 3 + 32px);
+    width: var(--width);
+    gap: 0 16px;
+    margin: auto;
+    flex-wrap: wrap;
+    opacity: 0;
+    padding: 16px calc(50% - var(--width) / 2);
+    background-clip: padding-box;
+    overflow-y: auto;
+    background: #21212180;
+    transition: right var(--transition-duration) var(--timing-function), left var(--transition-duration) var(--timing-function), opacity var(--transition-duration) var(--timing-function);
+}
+
+#second-page.next-content .background-image {
+    right: 0;
+    left: 0;
+    opacity: 1;
+}
+
+#second-page .background-image > .circle {
+    box-shadow: calc((var(--circle-width) + 2rem) * 1) 0 #ffffff11,calc((var(--circle-width) + 2rem) * 2) 0 #ffffff11,calc((var(--circle-width) + 2rem) * 0) 0 #ffffff11,calc((var(--circle-width) + 2rem) * -1) 0 #ffffff11,calc((var(--circle-width) + 2rem) * -2) 0 #ffffff11,calc((var(--circle-width) + 2rem) * 0) 0 #ffffff11;
+    position: relative;
+    width: var(--circle-width);
+    background: var(--COLOR3);
+    overflow: hidden;
+}
+
+#second-page .background-image > .circle > .circle {
+    --in-circle: 192px;
+    opacity: 0;
+    background: var(--COLOR3);
+    width: var(--in-circle);
+    --r: calc(1.414213562373095 * (var(--circle-width) / 4));
+    transform: translate(var(--r), var(--r));
+    transition: transform var(--transition-duration) var(--timing-function), opacity var(--transition-duration) var(--timing-function);
+}
+
+#second-page .background-image > .circle .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: var(--circle-width);
+    color: var(--COLOR0);
+    font-size: 3rem;
+    transition: opacity var(--transition-duration) var(--timing-function);
+}
+
+#second-page .background-image > .circle:hover .text {
+    opacity: 1;
+}
+
+#second-page .background-image > .circle:hover > .circle {
+    opacity: .75;
+    transform: translate(var(--r), var(--r)) scale(calc(2));
+}
+
+#second-page .background-image > .circle .circle-in {
+    background: #21212180;
+    width: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity var(--transition-duration) var(--timing-function);
+}
+
+#second-page .background-image > .circle:hover .circle-in {
+    opacity: 1;
+}
+
+#second-page .background-image > .circle svg {
+    color: var(--COLOR3);
+    font-size: 4rem;
+}
+
+#second-page .background-image > .circle:nth-child(3n - 2) {
+    background: url("../images/matheus-ferrero.jpg") center / cover;
+}
+
+#second-page .background-image > .circle:nth-child(3n - 1) {
+    background: url("../images/jurica-koletic.jpg") center / cover;
+}
+
+#second-page .background-image > .circle:nth-child(3n) {
+    background: url("../images/joseph-gonzalez.jpg") center / cover;
+}
+
+/*#second-page .background-image .circle:hover {*/
+/*    box-shadow: 0 0 0 32px var(--COLOR3);*/
+/*}*/
+
+#second-page .background-image > .circle:nth-child(5n + 1) {
+    margin-right: 1px;
+}
+
+#second-page.next-content .content *:not(.onclick-junk, .onclick-junk *) {
+    transition: all var(--transition-duration) var(--timing-function);
+}
+
+#second-page.next-content .content *:not(.onclick-junk, .onclick-junk *) {
+    opacity: 0;
+}
+
+#second-page.next-content {
+    --second-page-background-position-x: 0;
+}
+
+#second-page.next-content .wave:hover {
+    background: #d9d9d9;
+}
+
+#second-page.next-content .wave, #second-page.next-content .content {
+    left: var(--second-page-next-content-left);
+}
+
+#second-page .wave.first, .second-page-alternative .wave.first {
+    /*transform: translateX(1px);*/
+    clip-path: url(#wave2);
+    background: var(--second-page-background);
+    /*position: absolute;*/
+    /*left: calc(50% - 320px);*/
+    width: 320px;
+    height: 1440px;
+    transform: translateX(1px);
+}
+
+#second-page .wave.second, .second-page-alternative .wave.second {
+    /*transform: translateX(1px);*/
+    clip-path: url(#wave2);
+    transform: rotate(180deg) translateX(1px);
+    background: var(--second-page-background);
+    /*position: absolute;*/
+    /*left: calc(50% - 320px);*/
+    width: 320px;
+    height: 1440px;
+}
+
+#second-page.next-content .onclick-junk {
+    z-index: 1;
+}
+
+#second-page .content, #second-page .wave {
+    position: relative;
+    left: 0;
+    transition: all var(--transition-duration) var(--timing-function);
+}
+
+#second-page .content, .second-page-alternative .content {
+    width: 25%;
+    height: 100%;
+    background: var(--second-page-background);
+    z-index: 1;
+}
+
+#second-page .title, .second-page-alternative .title {
+    color: var(--COLOR1);
+    font-size: 6rem;
+    margin-top: 6rem;
+}
+
+#second-page .text, .second-page-alternative .text {
+    color: var(--COLOR0);
+    font-size: 2rem;
+    margin-top: 2rem;
+    line-height: 2;
+}
+
+#second-page .content .back-button:not(#second-page .content .slogan-container .back-button) {
+    --background: var(--COLOR1);
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 16%;
+    background: var(--background);
+    color: var(--COLOR3);
+    font-size: 2rem;
+    box-shadow: 0 0 0 0 var(--background);
+    transition: box-shadow var(--transition-duration) var(--timing-function);
+}
+
+#second-page .content .back-button:not(#second-page .content .slogan-container .back-button):hover {
+    box-shadow: 0 0 0 32px var(--background);
+}
+
+#second-page .content .slogan-container, .second-page-alternative .content .slogan-container {
+    width: 100%;
+    height: 300px;
+    transition: transform var(--transition-duration) var(--timing-function), opacity var(--transition-duration) var(--timing-function);
+}
+
+#second-page .content .fa-alt, .second-page-alternative .content .fa-alt {
+    font-size: 3rem;
+    transform: none !important;
+}
+
+#second-page .content .fa-container svg, .second-page-alternative .content .fa-container svg {
+    font-size: 6rem;
+    transform: none !important;
+}
+
+#second-page .content .slogan, .second-page-alternative .content .slogan {
+    transition: box-shadow var(--transition-duration) var(--timing-function), background var(--transition-duration) var(--timing-function);
+}
+
+#second-page .content .slogan.first, .second-page-alternative .content .slogan.first {
+    width: 64%;
+    /*transform: translateX(12%);*/
+    background: var(--COLOR0);
+    box-shadow: 0 0 0 0 var(--COLOR0);
+}
+
+#second-page .content .slogan.first:hover /*, .second-page-alternative .content .slogan.first:hover */
+{
+    box-shadow: 0 0 0 32px var(--COLOR0);
+}
+
+#second-page .content .slogan.second, .second-page-alternative .content .slogan.second {
+    width: 32%;
+    transform: translateX(-100%);
+    background: var(--COLOR1);
+    box-shadow: 0 0 0 0 var(--COLOR1);
+}
+
+#second-page .content .slogan.second:hover /*, .second-page-alternative .content .slogan.second:hover */
+{
+    box-shadow: 0 0 0 32px var(--COLOR1);
+}
+
+#second-page .content .slogan.third, .second-page-alternative .content .slogan.third {
+    width: 32%;
+    transform: translate(calc(-1.414213562373095 * 16% * 100 / 32), calc(1.414213562373095 * 16% * 100 / 32));
+    background: var(--COLOR2);
+    box-shadow: 0 0 0 0 var(--COLOR2);
+}
+
+#second-page .content .slogan.third:hover /*, .second-page-alternative .content .slogan.third:hover*/
+{
+    box-shadow: 0 0 0 32px var(--COLOR2);
+}
+
+#second-page .content .slogan-container .back-button, .second-page-alternative .content .slogan-container .back-button {
+    width: 100%;
+    height: 100%;
+    color: var(--COLOR3);
+    font-size: 4rem;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity var(--transition-duration) var(--timing-function);
+}
+
+#second-page .content .slogan-detail, .second-page-alternative .content .slogan-detail {
+    --width: 84%;
+    left: calc(((100% - var(--width)) / 2) + 50%);
+    width: var(--width);
+    background: var(--COLOR0);
+    font-size: 2rem;
+    color: var(--COLOR3);
+}
+
+#second-page .content .slogan-detail .text, .second-page-alternative .content .slogan-detail .text {
+    width: 50%;
+    font-size: 2rem;
+    color: var(--COLOR3);
+}
+
+#second-page .content .slogan-detail-design.first, .second-page-alternative .content .slogan-detail-design.first {
+    color: var(--COLOR3);
+    font-size: 4rem;
+    --width: 32%;
+    --width-without-percent: 32;
+    background: var(--COLOR1);
+    left: calc(((100% - var(--width)) / 2) + 50%);
+    width: var(--width);
+    transform: translateX(calc(100% * (42 / var(--width-without-percent))));
+    /*transform: translate(calc(1.414213562373095 * 42% / var(--width-without-percent) * 100 / 2), calc(1.414213562373095 * 42% / var(--width-without-percent) * 100 / 2));*/
+}
+
+/*todo remove hover when alternative*/
+#second-page .content .slogan-detail-design.first:hover, .second-page-alternative .content .slogan-detail-design.first:hover {
+    background: #557769;
+}
+
+#second-page .content .slogan-detail-design.second, .second-page-alternative .content .slogan-detail-design.second {
+    --width: 16%;
+    --width-without-percent: 16;
+    background: var(--COLOR2);
+    left: calc(((100% - var(--width)) / 2) + 50%);
+    width: var(--width);
+    transform: translateX(calc(100% * (42 / var(--width-without-percent)))) translate(calc(1.414213562373095 * 16% * 100 / 32), calc(-1.414213562373095 * 16% * 100 / 32));
+    /*transform: translate(calc(1.414213562373095 * 42% / var(--width-without-percent) * 100 / 2), calc(1.414213562373095 * 42% / var(--width-without-percent) * 100 / 2));*/
+}
+
+#second-page .content .slogan-detail-design, .second-page-alternative .content .slogan-detail-design, #second-page .content .slogan-detail, .second-page-alternative .content .slogan-detail {
+    opacity: 0;
+    z-index: -1;
+    transition: opacity var(--transition-duration) var(--timing-function), background var(--transition-duration) var(--timing-function);
+}

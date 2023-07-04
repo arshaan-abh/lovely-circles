@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;700&family=Julius+Sans+One&display=swap');
+
 :root {
     --COLOR0: #212121;
     --COLOR1: #6D9886;
@@ -5,22 +7,33 @@
     --COLOR2: #D9CAB3;
     --COLOR3: #F6F6F6;
     --COLOR3-opacity: #F6F6F620;
-    --no-color: url('../images/no color.jpg');
+    --no-color: url('../images/no-color.jpg');
     --timing-function: cubic-bezier(0, 1, 1, 1);
     --loading-transition-duration: 1s;
     --loading-animation-transition-duration: 16s;
     --transition-duration: .5s;
+    --second-page-background:var(--COLOR3);
+    --second-page-next-content-left:0;
     font-size: 8px;
 }
 
 /* todo text selection*/
+/* todo active style and these kinda stuff*/
 /* todo cursor*/
 /* todo font*/
+/* todo name the circles*/
 body {
-    font-family: Calibri;
+    font-family: 'Comfortaa', cursive;
     overflow: hidden;
     margin: 0;
     background: var(--COLOR0);
+}
+
+.content .title {
+    /*font-weight: 700;*/
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 4rem;
+    /*font-weight: bold;*/
 }
 
 .fa-container {
@@ -30,23 +43,27 @@ body {
 }
 
 .fa-container .fa-alt {
+    text-align: center;
     position: absolute;
     color: transparent;
-    transition: color var(--transition-duration) var(--timing-function);
+    transition: color var(--transition-duration) var(--timing-function), transform var(--transition-duration) var(--timing-function);
+    transform: scale(.8);
 
 }
 
 .fa-container:hover .fa-alt {
     color: var(--COLOR3);
+    transform: scale(1);
 }
 
 .fa-container svg {
     color: var(--COLOR3);
-    transition: color var(--transition-duration) var(--timing-function);
+    transition: color var(--transition-duration) var(--timing-function), transform var(--transition-duration) var(--timing-function);
 
 }
 
 .fa-container:hover svg {
+    transform: scale(1.2);
     color: var(--COLOR3-opacity);
 }
 
@@ -79,7 +96,7 @@ body {
     top: 0;
     opacity: 0;
     transform: scale(2);
-    transition: opacity var(--loading-transition-duration) var(--timing-function), transform var(--loading-transition-duration) var(--timing-function), top var(--loading-transition-duration) var(--timing-function);
+    transition: opacity var(--loading-transition-duration) var(--timing-function), transform var(--loading-transition-duration) var(--timing-function), top var(--transition-duration) var(--timing-function);
 }
 
 #main .CIRCLE0 {
@@ -92,13 +109,14 @@ body {
     background: var(--COLOR0);
     position: absolute;
     transform: translate(50%, 50%);
-    box-shadow: 0 0 0 8px var(--COLOR0);
-    transition: background var(--transition-duration) var(--timing-function), color var(--transition-duration) var(--timing-function);
+    box-shadow: 0 0 0 0 var(--COLOR0);
+    transition: background var(--transition-duration) var(--timing-function), color var(--transition-duration) var(--timing-function), box-shadow var(--transition-duration) var(--timing-function);
     color: var(--COLOR3);
     font-size: 4rem;
 }
 
 #main .CIRCLE1:hover {
+    box-shadow: 0 0 0 32px var(--COLOR0);
     background: var(--COLOR1);
     /*todo add gradient to blue circles like this:*/
     /*background: var(--COLOR1-gradient);*/
@@ -136,16 +154,26 @@ body {
     overflow: hidden;
 }
 
+.center-when-overflowed {
+    width: 2000px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -1000px;
+}
+
 #main #menu .CIRCLE3 {
+    display: block;
+    margin: 0 auto;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    margin: auto;
+    /*margin: auto;*/
     background: var(--COLOR2);
     width: 0;
-    height: 0;
     border-radius: 50%;
+    /*transform: translateY(-50%);*/
     transition: width var(--transition-duration) var(--timing-function), height var(--transition-duration) var(--timing-function), border-radius var(--transition-duration) var(--timing-function);
 }
 
@@ -159,4 +187,59 @@ body {
 
 #main #menu li:last-child {
     padding-bottom: 1rem;
+}
+
+
+stack {
+    position: relative;
+    display: flex;
+}
+
+stack[alignment=center-center] {
+    justify-content: center;
+    align-items: center;
+}
+
+stack[alignment=right-center] {
+    justify-content: right;
+    align-items: center;
+}
+
+stack[alignment=left-center] {
+    justify-content: left;
+    align-items: center;
+}
+
+stack[alignment=center-top] {
+    justify-content: center;
+    align-items: start;
+}
+
+stack[alignment=right-top] {
+    justify-content: right;
+    align-items: start;
+}
+
+stack[alignment=left-top] {
+    justify-content: left;
+    align-items: start;
+}
+
+stack[alignment=center-bottom] {
+    justify-content: center;
+    align-items: end;
+}
+
+stack[alignment=right-bottom] {
+    justify-content: right;
+    align-items: end;
+}
+
+stack[alignment=left-bottom] {
+    justify-content: left;
+    align-items: end;
+}
+
+stack-child {
+    position: absolute;
 }
